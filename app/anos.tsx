@@ -4,7 +4,7 @@ import useSWR from "swr";
 import { fetcher } from "@/services/fetcher";
 import { Anos } from "@/modelos";
 
-export default function Anos() {
+export default function AnoDetalhe() {
   const router = useRouter();
 
   const { codigoMarca, codigoModelo } = useLocalSearchParams();
@@ -18,10 +18,14 @@ export default function Anos() {
   );
 
   const goNext = (codigo: string) => {
-    console.log("Codigo: ", codigo);
+
     router.navigate({
-      pathname: "/anos",
-      params: { codigoMarca: codigoMarca, codigoModelo: codigo },
+      pathname: "/veiculo",
+      params: {
+        codigoMarca: codigoMarca,
+        codigoModelo: codigoModelo,
+        codigoAno: codigo,
+      },
     });
   };
 
