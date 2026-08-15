@@ -7,20 +7,20 @@ import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 
 interface IFipeScreen {
-  data: [];
+  data?: [];
 }
 
 export default function FipeScreen({ data }: IFipeScreen) {
   const router = useRouter();
   const [search, setSearch] = useState("");
 
-  const filteredData = data.filter((item) =>
-    item?.title?.toLowerCase().includes(search.toLowerCase()),
+  const filteredData = data?.filter((item) =>
+    item?.nome?.toLowerCase().includes(search.toLowerCase()),
   );
 
   const renderItem = ({ item }) => (
     <View style={styles.item}>
-      <Text>{item.title}</Text>
+      <Text>{item.nome}</Text>
       <Ionicons name="chevron-forward" size={24} color="black" />
     </View>
   );
